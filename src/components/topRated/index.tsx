@@ -30,7 +30,7 @@ export const TopRated: React.FC<Props> = ({data}) => {
 const styles = StyleSheet.create({
   componentBody: {
     width: '100%',
-    marginTop: 20,
+    marginTop: 25,
     marginBottom: 20,
   },
 });

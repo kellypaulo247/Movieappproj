@@ -19,10 +19,6 @@ const HomeScreen = () => {
     getData();
   }, []);
 
-  console.log('====================================');
-  console.log(top5);
-  console.log('====================================');
-
   return (
     <View style={styles.body}>
       <Text style={styles.h1}>What do you want to watch?</Text>
@@ -40,9 +36,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   h1: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: '600',
     marginBottom: 12,
     color: colors.white,
+    paddingLeft: 10,
   },
 });
