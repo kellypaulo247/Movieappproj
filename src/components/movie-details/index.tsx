@@ -116,7 +116,7 @@ export const MovieDetailsComponent = (props: Props) => {
             source={TicketIcon}
             style={{width: 20, height: 20, tintColor: colors.secondary}}
           />
-          <Text style={{color: colors.secondary}}>{props.genres[0].name}</Text>
+          <Text style={{color: colors.secondary}}></Text>
         </View>
       </View>
     </View>

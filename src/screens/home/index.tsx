@@ -1,11 +1,10 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import React, {useEffect} from 'react';
 
 import {SearchInput} from '../../components/input/search-input';
 import {TopRated} from '../../components/topRated';
 
-import {colors} from '../../assets/colors';
-
+import {styles} from './Styles';
 import {useApiFetch} from '../../hook/api-fetch';
 
 import {endPoints} from '../../api/endpoints';
@@ -36,14 +35,4 @@ const HomeScreen = () => {
 
 export default HomeScreen;
 
-const styles = StyleSheet.create({
-  body: {
-    flex: 1,
-  },
-  h1: {
-    fontSize: 18,
-    fontWeight: '600',
-    marginBottom: 12,
-    color: colors.white,
-  },
-});
+

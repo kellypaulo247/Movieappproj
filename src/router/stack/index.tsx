@@ -23,7 +23,7 @@ export const MainStack = () => {
           paddingTop: 50,
         },
       }}>
-      {!loggedIn ? (
+      {loggedIn ? (
         <Stack.Group screenOptions={{animation: 'ios'}}>
           <Stack.Screen name="Main" component={BottomTabs} />
           <Stack.Screen name="MovieDetails" component={MovieDetailsScreen} />

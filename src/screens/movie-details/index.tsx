@@ -5,6 +5,8 @@ import {useRoute} from '@react-navigation/native';
 
 import {endPoints} from '../../api/endpoints';
 
+import {styles} from './Styles';
+
 import {WatchListFilledIcon} from '../../assets/icons';
 import {colors} from '../../assets/colors';
 
@@ -73,14 +75,4 @@ const MovieDetailsScreen = () => {
 
 export default MovieDetailsScreen;
 
-const styles = StyleSheet.create({
-  body: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  headerRight: {
-    tintColor: colors.white,
-    width: 20,
-    height: 20,
-  },
-});
+

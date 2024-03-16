@@ -17,6 +17,9 @@ import {
   IMovieSearchResult,
 } from '../../interfaces/movie-search';
 import {useApiFetch} from '../../hook/api-fetch';
+
+import {styles} from './Styles';
+
 import {deviceHeight, deviceWidth} from '../../utils/device-dimensions';
 import DetailedMovieCard from '../../components/card/detailed-movie';
 import MovieImageCard from '../../components/card/movie';
@@ -81,21 +84,4 @@ const SearchScreen = () => {
 
 export default SearchScreen;
 
-const styles = StyleSheet.create({
-  body: {
-    flex: 1,
-  },
-  contentContainer: {
-    flexDirection: 'row',
-    flexGrow: 1,
-    flexWrap: 'wrap',
-    gap: 4,
-    alignItems: 'center',
-    marginTop: 16,
-    paddingBottom: deviceHeight / 4.8,
-  },
-  image: {
-    width: 200,
-    height: 160,
-  },
-});
+
