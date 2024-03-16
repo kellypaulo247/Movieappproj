@@ -8,7 +8,7 @@ import {MainStack} from './stack';
 const RootRouter = () => {
   StatusBar.setTranslucent(true);
   StatusBar.setBackgroundColor('transparent');
-  StatusBar.setBarStyle('dark-content');
+  StatusBar.setBarStyle('light-content');
 
   return (
     <AuthContextProvider>

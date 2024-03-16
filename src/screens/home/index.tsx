@@ -1,11 +1,16 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React, {useEffect} from 'react';
+
 import {SearchInput} from '../../components/input/search-input';
-import {colors} from '../../assets/colors';
-import {useApiFetch} from '../../hook/api-fetch';
-import {endPoints} from '../../api/endpoints';
-import {IMovieResult, IMoviesListResponse} from '../../interfaces/movie-lists';
 import {TopRated} from '../../components/topRated';
+
+import {colors} from '../../assets/colors';
+
+import {useApiFetch} from '../../hook/api-fetch';
+
+import {endPoints} from '../../api/endpoints';
+
+import {IMovieResult, IMoviesListResponse} from '../../interfaces/movie-lists';
 
 const HomeScreen = () => {
   const [top5, setTop5] = React.useState<IMovieResult[]>([]);
@@ -36,10 +41,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   h1: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: '600',
     marginBottom: 12,
     color: colors.white,
-    paddingLeft: 10,
   },
 });

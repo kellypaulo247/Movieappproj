@@ -6,21 +6,21 @@ import {colors} from '../../assets/colors';
 type Props = {
   title: string;
   isTitleOnly?: boolean;
-  right?: any;
+  Right?: () => JSX.Element;
 };
 
-export const CustomHeader = ({title, right, isTitleOnly}: Props) => {
+export const CustomHeader = ({title, Right, isTitleOnly}: Props) => {
   return (
     <View
       style={[
         styles.componentBody,
         {justifyContent: isTitleOnly ? 'center' : 'space-between'},
       ]}>
-      {!isTitleOnly && <Image source={LeftArrowIcon} />}
+      {!isTitleOnly && <Image style={styles.icon} source={LeftArrowIcon} />}
 
       <Text style={styles.text}>{title}</Text>
 
-      {right && !isTitleOnly && <Image source={right} />}
+      {Right && !isTitleOnly && <Right />}
     </View>
   );
 };
@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     height: 45,
+    width: '100%',
     marginBottom: 20,
   },
   text: {

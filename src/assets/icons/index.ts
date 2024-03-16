@@ -7,6 +7,10 @@ import EyeOffIcon from './eye-off.png';
 import SearchIcon from './search.png';
 import WatchListIcon from './bookmark.png';
 import WatchListFilledIcon from './bookmark-filled.png';
+import StarIcon from './Star.png';
+import CalendarIcon from './calendar.png';
+import TimeIcon from './Clock.png';
+import TicketIcon from './Ticket.png';
 
 export {
   HomeIcon,
@@ -18,4 +22,8 @@ export {
   SearchIcon,
   WatchListFilledIcon,
   WatchListIcon,
+  StarIcon,
+  CalendarIcon,
+  TicketIcon,
+  TimeIcon,
 };

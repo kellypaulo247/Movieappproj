@@ -9,8 +9,9 @@ import SearchScreen from '../../screens/search';
 import WatchListScreen from '../../screens/watch-list';
 
 import {TabView} from '../../components/button/tab-view';
+import {BottomTabsParamList} from '../_types';
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<BottomTabsParamList>();
 
 export const BottomTabs = () => {
   return (
@@ -18,7 +19,6 @@ export const BottomTabs = () => {
       initialRouteName="home"
       sceneContainerStyle={{
         backgroundColor: colors.primary,
-        paddingTop: 50,
         paddingHorizontal: 20,
       }}
       screenOptions={{
@@ -30,6 +30,7 @@ export const BottomTabs = () => {
           borderTopColor: colors.blue,
         },
         tabBarShowLabel: false,
+        tabBarHideOnKeyboard: true,
       }}>
       <Tab.Screen
         name="home"
@@ -51,7 +52,7 @@ export const BottomTabs = () => {
       />
 
       <Tab.Screen
-        name="watchlist"
+        name="watchList"
         component={WatchListScreen}
         options={{
           tabBarIcon: ({focused}) => (

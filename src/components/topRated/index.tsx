@@ -17,6 +17,7 @@ export const TopRated: React.FC<Props> = ({data}) => {
         renderItem={({item, index}) => (
           <MovieImageCard
             path={item?.poster_path}
+            id={item.id}
             isTop5
             top5Index={index + 1}
           />
@@ -30,7 +31,7 @@ export const TopRated: React.FC<Props> = ({data}) => {
 const styles = StyleSheet.create({
   componentBody: {
     width: '100%',
-    marginTop: 25,
+    marginTop: 20,
     marginBottom: 20,
   },
 });
