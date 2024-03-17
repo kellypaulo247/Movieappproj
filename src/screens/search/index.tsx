@@ -1,47 +1,17 @@
-import {
-  Image,
-  KeyboardAvoidingView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import React, {useEffect} from 'react';
+import {KeyboardAvoidingView, ScrollView, View} from 'react-native';
+import React from 'react';
 
+/* components */
 import {SearchInput} from '../../components/input/search-input';
 import {CustomHeader} from '../../components/header';
 import {NoResults} from '../../components/info/movie-not-found';
-import {endPoints} from '../../api/endpoints';
-import {
-  IMovieSearchResponse,
-  IMovieSearchResult,
-} from '../../interfaces/movie-search';
-import {useApiFetch} from '../../hook/api-fetch';
-
-import {styles} from './Styles';
-
-import {deviceHeight, deviceWidth} from '../../utils/device-dimensions';
-import DetailedMovieCard from '../../components/card/detailed-movie';
 import MovieImageCard from '../../components/card/movie';
 
+import {styles} from './Styles';
+import {useSearchHook} from './hook';
+
 const SearchScreen = () => {
-  const [searchTerm, setSearchTerm] = React.useState<string>('');
-
-  const [data, setData] = React.useState<IMovieSearchResult[]>([]);
-
-  const handleOnSearch = async () => {
-    if (searchTerm === '') return;
-
-    try {
-      const results = (
-        await useApiFetch<IMovieSearchResponse>(endPoints.search + searchTerm)
-      ).data.results;
-
-      setData(results);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const {data, handleOnSearch, searchTerm, setSearchTerm} = useSearchHook();
 
   return (
     <KeyboardAvoidingView style={styles.body}>
@@ -53,23 +23,11 @@ const SearchScreen = () => {
 
       <View style={styles.contentContainer}>
         {data?.length === 0 ? (
-          <View
-            style={{
-              width: '100%',
-              alignItems: 'center',
-              justifyContent: 'center',
-              alignSelf: 'center',
-              marginTop: deviceWidth / 2,
-            }}>
+          <View style={styles.noContentContainer}>
             <NoResults />
           </View>
         ) : (
-          <ScrollView
-            contentContainerStyle={{
-              alignItems: 'center',
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-            }}>
+          <ScrollView contentContainerStyle={styles.scrollContentContainer}>
             {data?.map((movie, index) => (
               <View key={index}>
                 <MovieImageCard path={movie?.poster_path} id={movie.id} />
@@ -83,5 +41,3 @@ const SearchScreen = () => {
 };
 
 export default SearchScreen;
-
-

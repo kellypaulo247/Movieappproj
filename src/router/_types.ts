@@ -9,6 +9,7 @@ import {StackScreenProps} from '@react-navigation/stack';
 type RootStackParamList = {
   Main: NavigatorScreenParams<BottomTabsParamList>;
   Login: undefined;
+  Splash: undefined;
   MovieDetails: {
     id: number;
   };
@@ -22,6 +23,7 @@ type MainStackParamList = {
 
 type BottomTabsParamList = {
   home: undefined;
+  profile: undefined;
   search: undefined;
   watchList: undefined;
 };

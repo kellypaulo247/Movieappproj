@@ -14,6 +14,7 @@ export const TopRated: React.FC<Props> = ({data}) => {
         data={data || []}
         horizontal
         showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{gap: 20}}
         renderItem={({item, index}) => (
           <MovieImageCard
             path={item?.poster_path}

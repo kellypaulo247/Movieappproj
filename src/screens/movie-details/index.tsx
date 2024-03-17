@@ -1,4 +1,11 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  ToastAndroid,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React, {useEffect} from 'react';
 
 import {useRoute} from '@react-navigation/native';
@@ -16,6 +23,9 @@ import {useApiFetch} from '../../hook/api-fetch';
 
 import {CustomHeader} from '../../components/header';
 import {MovieDetailsComponent} from '../../components/movie-details';
+import {useApiPost} from '../../utils';
+import {useAuthContext} from '../../context/auth';
+import {IAddToWatchListBodyParam} from '../../interfaces/movie-watchlist';
 
 type MovieDetailsScreenRouteProp = {
   name: string;
@@ -26,6 +36,7 @@ type MovieDetailsScreenRouteProp = {
 };
 
 const MovieDetailsScreen = () => {
+  const {userAccount} = useAuthContext();
   const route = useRoute<MovieDetailsScreenRouteProp>();
 
   const {id} = route.params;
@@ -38,6 +49,24 @@ const MovieDetailsScreen = () => {
     setMovie(res.data);
     setLoading(false);
   }
+
+  const handleAddToWatchList = async () => {
+    const data: IAddToWatchListBodyParam = {
+      media_id: id,
+      media_type: 'movie',
+      watchlist: true,
+    };
+    try {
+      await useApiPost({
+        url: endPoints.addWatchlist + userAccount?.id + '/watchlist',
+        data,
+      });
+
+      ToastAndroid.show('Added to watchlist', ToastAndroid.SHORT);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -53,7 +82,7 @@ const MovieDetailsScreen = () => {
           title="Details"
           Right={() => {
             return (
-              <TouchableOpacity>
+              <TouchableOpacity onPress={handleAddToWatchList}>
                 <Image
                   source={WatchListFilledIcon}
                   style={styles.headerRight}
@@ -74,5 +103,3 @@ const MovieDetailsScreen = () => {
 };
 
 export default MovieDetailsScreen;
-
-

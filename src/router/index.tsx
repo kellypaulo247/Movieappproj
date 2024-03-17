@@ -4,6 +4,7 @@ import {StatusBar} from 'react-native';
 import {AuthContextProvider} from '../context/auth';
 
 import {MainStack} from './stack';
+import {TabContextProvider} from '../context/tab';
 
 const RootRouter = () => {
   StatusBar.setTranslucent(true);
@@ -12,9 +13,11 @@ const RootRouter = () => {
 
   return (
     <AuthContextProvider>
-      <NavigationContainer>
-        <MainStack />
-      </NavigationContainer>
+      <TabContextProvider>
+        <NavigationContainer>
+          <MainStack />
+        </NavigationContainer>
+      </TabContextProvider>
     </AuthContextProvider>
   );
 };

@@ -1,7 +1,8 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {LeftArrowIcon} from '../../assets/icons';
 import {colors} from '../../assets/colors';
+import {useNavigation} from '@react-navigation/native';
 
 type Props = {
   title: string;
@@ -10,13 +11,18 @@ type Props = {
 };
 
 export const CustomHeader = ({title, Right, isTitleOnly}: Props) => {
+  const navigation = useNavigation();
   return (
     <View
       style={[
         styles.componentBody,
         {justifyContent: isTitleOnly ? 'center' : 'space-between'},
       ]}>
-      {!isTitleOnly && <Image style={styles.icon} source={LeftArrowIcon} />}
+      {!isTitleOnly && (
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image style={styles.icon} source={LeftArrowIcon} />
+        </TouchableOpacity>
+      )}
 
       <Text style={styles.text}>{title}</Text>
 

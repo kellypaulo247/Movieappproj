@@ -6,7 +6,7 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-import {EyeIcon, EyeOffIcon, PasswordIcon} from '../../assets/icons';
+import {EyeIcon, EyeOffIcon} from '../../assets/icons';
 import {colors} from '../../assets/colors';
 
 type Props = {

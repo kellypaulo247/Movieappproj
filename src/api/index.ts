@@ -1,10 +1,20 @@
 import axios from 'axios';
+import {retrieveSession} from '../utils/storage';
 
 export const api = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
   headers: {
     Accept: 'application/json',
-    Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YTc3M2Y0YzAxNGE0MzFmMWI1NTcyM2M2NjUyMzFkNCIsInN1YiI6IjY1ZjFiYTYxZDY0YWMyMDE2NDVlNTJmNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.dAxwUZuy-9K8BnqH5iYq6aDv-C-LqcEFz_-zu7LPQjI',
   },
+  params: {
+    api_key: '5a773f4c014a431f1b55723c665231d4',
+  },
+});
+
+api.interceptors.request.use(async request => {
+  const session = await retrieveSession();
+
+  request.params['session_id'] = session;
+
+  return request;
 });

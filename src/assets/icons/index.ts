@@ -11,6 +11,7 @@ import StarIcon from './Star.png';
 import CalendarIcon from './calendar.png';
 import TimeIcon from './Clock.png';
 import TicketIcon from './Ticket.png';
+import UserIcon from './user.png';
 
 export {
   HomeIcon,
@@ -26,4 +27,5 @@ export {
   CalendarIcon,
   TicketIcon,
   TimeIcon,
+  UserIcon,
 };

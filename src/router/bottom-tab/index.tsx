@@ -2,7 +2,12 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
 
 import {colors} from '../../assets/colors';
-import {HomeIcon, SearchIcon, WatchListIcon} from '../../assets/icons';
+import {
+  HomeIcon,
+  SearchIcon,
+  UserIcon,
+  WatchListIcon,
+} from '../../assets/icons';
 
 import HomeScreen from '../../screens/home';
 import SearchScreen from '../../screens/search';
@@ -10,6 +15,7 @@ import WatchListScreen from '../../screens/watch-list';
 
 import {TabView} from '../../components/button/tab-view';
 import {BottomTabsParamList} from '../_types';
+import {ProfileScreen} from '../../screens/profile';
 
 const Tab = createBottomTabNavigator<BottomTabsParamList>();
 
@@ -57,6 +63,16 @@ export const BottomTabs = () => {
         options={{
           tabBarIcon: ({focused}) => (
             <TabView focused={focused} icon={WatchListIcon} />
+          ),
+        }}
+      />
+
+      <Tab.Screen
+        name="profile"
+        component={ProfileScreen}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <TabView focused={focused} icon={UserIcon} />
           ),
         }}
       />

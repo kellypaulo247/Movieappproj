@@ -16,6 +16,7 @@ type NavigationProp = StackNavigationProp<MainStackParamList>;
 type Props = {
   isTop5?: boolean;
   top5Index?: number;
+  small?: boolean;
   path: string;
   id: number;
 };
@@ -39,7 +40,13 @@ function getDimensions(index: number) {
   }
 }
 
-const MovieImageCard: React.FC<Props> = ({path, id, isTop5, top5Index}) => {
+const MovieImageCard: React.FC<Props> = ({
+  path,
+  id,
+  isTop5,
+  top5Index,
+  small,
+}) => {
   const navigation = useNavigation<NavigationProp>();
 
   const handleOnMovieDetails = () => {
@@ -52,9 +59,8 @@ const MovieImageCard: React.FC<Props> = ({path, id, isTop5, top5Index}) => {
       onPress={handleOnMovieDetails}
       style={{
         position: 'relative',
-        width: 150,
-        height: 250,
-        marginHorizontal: 10,
+        width: small ? 100 : 150,
+        height: small ? 145 : 250,
       }}>
       <FastImage
         source={{uri: getImage(path)}}
