@@ -1,3 +1,7 @@
+*User Login Sample:
+Username: KelsonPaulo
+Password: CodingTesting123
+
 
 I wanted to provide you with a brief technical overview of the approach 
 I took in creating this app, i used Context API  implementing authentication and state management. 
